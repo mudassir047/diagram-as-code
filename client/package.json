@@ -1,0 +1,19 @@
+{
+    "name": "diagram-as-code-client",
+    "version": "1.0.0",
+    "description": "A Node.js project to interact with diagram-as-code for generating and retrieving diagrams.",
+    "main": "index.js",
+    "scripts": {
+      "generate-diagram": "node index.js generate-diagram",
+      "get-diagram": "node index.js get-diagram",
+      "status": "node index.js status"
+    },
+    "config": {
+      "host": "http://localhost",
+      "port": "8500",
+      "apiVersion": "v1"
+    },
+    "dependencies": {
+      "axios": "^0.24.0"
+    }
+  }
