@@ -16,14 +16,15 @@ This Flask application provides endpoints for interacting with a diagram-as-code
 - **Description**: Generates a diagram from Python code and saves it as an image file.
 - **Request Body**:
   - `python_code`: The Python script code to generate the diagram.
-  - `name`: The name of the diagram.
+  - `out_format`: <png|jpg|pdf|svg|dot>
 - **Response**: Generates a diagram using the provided Python code and saves it with the specified name.
 
 ### 3. `/v1/get-diagram` (GET)
 
 - **Description**: Retrieves a previously generated diagram.
 - **Query Parameters**:
-  - `fileId`: The name of the diagram to retrieve.
+  - `file_id`: The id of the diagram to retrieve.
+  - `out_format`: <png|jpg|pdf|svg|dot>
 - **Response**: Retrieves the specified diagram file.
 
 ## Usage
@@ -38,23 +39,22 @@ This Flask application provides endpoints for interacting with a diagram-as-code
    POST /v1/generate-diagram
    {
        "python_code": "<python_script_code>",
-       "name": "<diagram_name>"
+       "out_format": "<png|jpg|pdf|svg|dot>"
    }
    ```
    Sample Response:
    ```json
    {
       "fileId": "ed25f284-7c47-4f6f-a168-60e92bca9ad6",
-      "message": "Diagram generated successfully. Run: `npm run get-diagram ed25f284-7c47-4f6f-a168-60e92bca9ad6 [<output dir location>]`"
+      "message": "Diagram generated successfully. Run: `get-diagram --file=ed25f284-7c47-4f6f-a168-60e92bca9ad6 [--outdir=<out dir location>] [--format=<[png|jpg|pdf|svg|dot]>]`"
    }
    ```
 
 3. **Get Generated Diagram**:
    ```bash
-   GET /v1/get-diagram?file_id=<file_id>
+   GET /v1/get-diagram?file_id=<file_id>&out_format=<[png|jpg|pdf|svg|dot]>
    ```
 
-Replace `<python_script_code>` with the Python script code, `<diagram_name>` with the desired name for the diagram, and `<file_id>` with the fileId returned by the generate request.
 
 ## Installation
 

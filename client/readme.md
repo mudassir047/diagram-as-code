@@ -26,10 +26,10 @@ To use the scripts provided by this project, run the corresponding npm commands:
 
 ```bash
 # Generate a diagram
-npm run generate-diagram <diagramName> [<script_path>]
+npm run generate-diagram -- --script=<script_location> [--format=<[png|jpg|pdf|svg|dot]>]
 
 # Get a generated diagram
-npm run get-diagram <fileId> [<output_path>]
+npm run get-diagram -- --file=<fileId> [--outdir=<out_dir_location>] [--format=<[png|jpg|pdf|svg|dot]>]
 
 # Check server status
 npm run status
@@ -42,9 +42,8 @@ npm run status
     diagram_name = "default-diagram-name"
     if __name__ == "__main__":
         if len(sys.argv) > 1:
-            print("Name argument passed:", sys.argv[1])
             diagram_name = sys.argv[1]
-
+            out_format = sys.argv[2]
 
     # -- diagram.py - Diagram Code starts here. --
     from diagrams import Diagram
@@ -52,7 +51,7 @@ npm run status
     from diagrams.aws.database import RDS
     from diagrams.aws.network import ELB
 
-    with Diagram(diagram_name, show=False, direction="TB"):
+    with Diagram("Event Streaming", show=False, direction="TB", filename=diagram_name,  outformat=out_format):
         ELB("lb") >> [EC2("worker1"),
                     EC2("worker2"),
                     EC2("worker3"),
@@ -63,13 +62,17 @@ npm run status
 
 - Run: 
     ```
-    npm run generate-diagram <diagramName> [<script_path>]
+    npm run generate-diagram -- --script=<script_location> [--format=<[png|jpg|pdf|svg|dot]>]
+
+    // format defaults to png
     ```
     The response will have a fileId.
 
 - Get the generated diagram using: 
     ```
-    npm run get-diagram <fileId> [<output_path>]
+    get-diagram -- --file=<fileId> [--outdir=<out dir location>] [--format=<[png|jpg|pdf|svg|dot]>]
+    
+    // format defaults to png
     ```
 
 - Result:
