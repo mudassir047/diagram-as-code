@@ -38,14 +38,6 @@ npm run status
 ## How to create a diagram script
 - here as sample diagram script:
     ```
-    import sys
-    diagram_name = "default-diagram-name"
-    if __name__ == "__main__":
-        if len(sys.argv) > 1:
-            diagram_name = sys.argv[1]
-            out_format = sys.argv[2]
-
-    # -- diagram.py - Diagram Code starts here. --
     from diagrams import Diagram
     from diagrams.aws.compute import EC2
     from diagrams.aws.database import RDS
