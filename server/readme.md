@@ -100,8 +100,3 @@ This Flask application provides endpoints for interacting with a diagram-as-code
 - **Version**: *
 - **Source**: [PyPI](https://pypi.org/project/gunicorn/)
 - **Documentation**: [Gunicorn Documentation](https://docs.gunicorn.org/en/stable/)
-
-
-## Author
-
-Mudassir Siddiqui

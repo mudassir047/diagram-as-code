@@ -80,7 +80,3 @@ npm run status
 ![generated diagram](image.png)
 
 More at: https://diagrams.mingrammer.com/docs/getting-started/examples
-
-## Author
-
-Mudassir Siddiqui

@@ -6,10 +6,12 @@ const v = process.env.npm_package_config_apiVersion
 
 async function generateDiagram(opts) {
   try {
+    const initScript = './scripts/args.py';
     const scriptPath = opts.script ? opts.script : './scripts/diag-script.py';
+    const initContent = fs.readFileSync(initScript, 'utf8');
     const scriptContent = fs.readFileSync(scriptPath, 'utf8');
     const body = {
-      python_code: scriptContent,
+      python_code: initContent + scriptContent,
       out_format: opts.format || 'png'
     }
     const response = await axios.post(`${SERVER_URL}/${v}/generate-diagram`, body);

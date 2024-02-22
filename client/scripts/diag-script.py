@@ -1,13 +1,3 @@
-import sys
-
-diagram_name = "default-diagram-name"
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        diagram_name = sys.argv[1]
-        out_format = sys.argv[2]
-
-
-# -- diagram.py - Diagram Code starts here. --
         
 from diagrams import Cluster, Diagram
 from diagrams.aws.compute import ECS, EKS, Lambda
