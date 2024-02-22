@@ -58,6 +58,7 @@ npm run status
                     EC2("worker4"),
                     EC2("worker5")] >> RDS("events")
     ```
+    - Please do not remove `filename=diagram_name,  outformat=out_format` from `with Diagram` definition.
 - Save it in script.py.
 
 - Run: 
