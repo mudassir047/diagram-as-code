@@ -50,7 +50,7 @@ npm run status
                     EC2("worker4"),
                     EC2("worker5")] >> RDS("events")
     ```
-    - Please do not remove `filename=diagram_name,  outformat=out_format` from `with Diagram` definition.
+    - Please do not remove `filename=diagram_name,  outformat=out_format` from `with Diagram` definition, `diagram_name` and `out_format` receive value at runtime from the generation script.
 - Save it in script.py.
 
 - Run: 
